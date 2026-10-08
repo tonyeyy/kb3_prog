@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 32px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: #1e293b;
+            background: linear-gradient(135deg, #dbeafe, #f5f3ff 55%, #ede9fe);
+        }
+        main {
+            width: min(100%, 620px);
+            padding: clamp(24px, 5vw, 42px);
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            box-shadow: 0 20px 55px rgb(30 41 59 / 12%);
+        }
+        h1 { margin: 0 0 24px; text-align: center; color: #4338ca; font-size: 2rem; }
+        fieldset { margin: 0 0 16px; padding: 16px 18px; border: 1px solid #dbe3f0; border-radius: 12px; }
+        legend { padding: 0 6px; font-weight: 650; }
+        label { display: inline-block; padding: 4px 0; cursor: pointer; }
+        input[type="radio"] { accent-color: #4f46e5; }
+        button {
+            display: block; width: 100%; margin-top: 22px; padding: 13px 18px;
+            border: 0; border-radius: 10px; background: #4f46e5; color: #fff;
+            font: inherit; font-weight: 700; cursor: pointer; transition: background .2s, transform .2s;
+        }
+        button:hover { background: #4338ca; transform: translateY(-1px); }
+        button:focus-visible, input:focus-visible { outline: 3px solid #a5b4fc; outline-offset: 3px; }
+        #kontrola {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+        #kontrola + label {
+            display: block;
+            width: 100%;
+            margin-top: 22px;
+            padding: 13px 18px;
+            border-radius: 10px;
+            background: #4f46e5;
+            color: #fff;
+            font: inherit;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            transition: background .2s, transform .2s;
+        }
+        #kontrola + label:hover { background: #4338ca; transform: translateY(-1px); }
+        #kontrola:focus-visible + label { outline: 3px solid #a5b4fc; outline-offset: 3px; }
+        #reset { background: #64748b; }
+        #reset:hover { background: #475569; }
+        #vysledek { min-height: 1.5em; margin: 18px 0 0; text-align: center; font-weight: 700; color: #3730a3; }
+        #vysledek p { display: none; margin: 0; }
+        form:has(#kontrola:checked) ~ #vysledek p { display: block; }
+        form:has(#kontrola:checked) ~ #vysledek #spravne { display: none; }
+        form:has(#kontrola:checked):has(input[name="otazka1"][value="b"]:checked):has(input[name="otazka2"][value="c"]:checked):has(input[name="otazka3"][value="b"]:checked):has(input[name="otazka4"][value="b"]:checked) ~ #vysledek #spatne { display: none; }
+        form:has(#kontrola:checked):has(input[name="otazka1"][value="b"]:checked):has(input[name="otazka2"][value="c"]:checked):has(input[name="otazka3"][value="b"]:checked):has(input[name="otazka4"][value="b"]:checked) ~ #vysledek #spravne { display: block; }
+    </style>
+</head>
+<body>
+    <main>
+    <h1>Kvíz</h1>
+    <form id="kviz">
+        <fieldset>
+            <legend>1. Jaké je hlavní město České republiky?</legend>
+            <label><input type="radio" name="otazka1" value="a"> Brno</label><br>
+            <label><input type="radio" name="otazka1" value="b"> Praha</label><br>
+            <label><input type="radio" name="otazka1" value="c"> Ostrava</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>2. Kolik má týden dní?</legend>
+            <label><input type="radio" name="otazka2" value="a"> 5</label><br>
+            <label><input type="radio" name="otazka2" value="b"> 6</label><br>
+            <label><input type="radio" name="otazka2" value="c"> 7</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>3. Která planeta je nejblíže Slunci?</legend>
+            <label><input type="radio" name="otazka3" value="a"> Venuše</label><br>
+            <label><input type="radio" name="otazka3" value="b"> Merkur</label><br>
+            <label><input type="radio" name="otazka3" value="c"> Mars</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>4. Kolik je 6 × 7?</legend>
+            <label><input type="radio" name="otazka4" value="a"> 36</label><br>
+            <label><input type="radio" name="otazka4" value="b"> 42</label><br>
+            <label><input type="radio" name="otazka4" value="c"> 48</label>
+        </fieldset>
+
+        <input type="checkbox" id="kontrola">
+        <label for="kontrola">Zkontrolovat odpovědi</label>
+        <button type="reset" id="reset">Vymazat odpovědi</button>
+    </form>
+    <div id="vysledek" aria-live="polite">
+        <p id="spravne">Všechny odpovědi jsou správně.</p>
+        <p id="spatne">Některá odpověď není správně.</p>
+    </div>
+    </main>
+</body>
+</html>
