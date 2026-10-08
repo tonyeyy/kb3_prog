@@ -1,0 +1,115 @@
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.6;
+    margin: 0;
+    background-color: #f4efe9;
+    color: #222;
+}
+
+#header {
+    margin: 0;
+    padding: 30px 20px;
+    background-color: #6f4e37;
+    color: white;
+    text-align: center;
+}
+
+#header span {
+    display: block;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+#nav {
+    background-color: #3b2a1e;
+    padding: 12px;
+    text-align: center;
+}
+
+#nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0 15px;
+}
+
+#nav a:hover {
+    text-decoration: underline;
+}
+
+.obsah {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 15px;
+}
+
+.cerne,
+.bile {
+    overflow: hidden;
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 20px;
+}
+
+.cerne {
+    background-color: black;
+    color: white;
+}
+
+.bile {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+}
+
+.cerne h2,
+.bile h2 {
+    margin-top: 0;
+}
+
+.vlevo {
+    float: left;
+    width: 300px;
+    margin: 0 25px 10px 0;
+    border-radius: 12px;
+}
+
+.vpravo {
+    float: right;
+    width: 300px;
+    margin: 0 0 10px 25px;
+    border-radius: 12px;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    padding: 6px 0;
+    border-bottom: 1px solid grey;
+}
+
+.cena {
+    float: right;
+}
+
+#footer {
+    font-size: 12px;
+    color: grey;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 650px) {
+    .vlevo,
+    .vpravo {
+        float: none;
+        display: block;
+        width: 100%;
+        margin: 0 0 15px 0;
+    }
+}
