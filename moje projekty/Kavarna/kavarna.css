@@ -1,6 +1,6 @@
 body {
-    font-family: Georgia, "Times New Roman", serif;
-    line-height: 1.6;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    line-height: 1.7;
     margin: 0;
     background-color: #f4efe9;
     color: #222;
@@ -8,10 +8,14 @@ body {
 
 #header {
     margin: 0;
-    padding: 30px 20px;
+    padding: 40px 20px;
     background-color: #6f4e37;
     color: white;
     text-align: center;
+    font-family: "DM Serif Display", serif;
+    font-size: 42px;
+    font-weight: 400;
+    letter-spacing: 1px;
 }
 
 #header span {
@@ -20,18 +24,21 @@ body {
     font-weight: normal;
     font-style: italic;
     margin-top: 5px;
+    font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 #nav {
     background-color: #3b2a1e;
-    padding: 12px;
+    padding: 14px;
     text-align: center;
+    font-size: 15px;
 }
 
 #nav a {
     color: white;
     text-decoration: none;
-    padding: 0 15px;
+    padding: 0 18px;
+    font-weight: 500;
 }
 
 #nav a:hover {
@@ -39,17 +46,28 @@ body {
 }
 
 .obsah {
-    max-width: 800px;
+    max-width: 850px;
     margin: auto;
     padding: 0 15px;
 }
 
 .cerne,
 .bile {
-    overflow: hidden;
-    padding: 25px;
-    margin: 25px 0;
+    padding: 45px;
+    margin: 35px 0;
     border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cerne:hover,
+.bile:hover {
+    padding-top: 65px;
+    padding-bottom: 65px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
 }
 
 .cerne {
@@ -63,23 +81,73 @@ body {
     border: 2px solid black;
 }
 
+.text-blok {
+    flex: 1;
+}
+
 .cerne h2,
 .bile h2 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 32px;
     margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .vlevo {
-    float: left;
-    width: 300px;
-    margin: 0 25px 10px 0;
-    border-radius: 12px;
+    order: 0;
 }
 
 .vpravo {
-    float: right;
+    order: 1;
+}
+
+.kavarna-galerie {
+    position: relative;
     width: 300px;
-    margin: 0 0 10px 25px;
+    height: 200px;
     border-radius: 12px;
+    overflow: hidden;
+    z-index: 1;
+    flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kavarna-galerie:hover {
+    transform: scale(1.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+.kavarna-galerie img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+}
+
+.kavarna-galerie img:first-child {
+    opacity: 1;
+    z-index: 2;
+}
+
+.kavarna-galerie:hover img {
+    animation: prolinaniFotek 9s infinite ease-in-out;
+}
+
+.kavarna-galerie:hover img:nth-child(1) { animation-delay: 0s; }
+.kavarna-galerie:hover img:nth-child(2) { animation-delay: 3s; }
+.kavarna-galerie:hover img:nth-child(3) { animation-delay: 6s; }
+
+@keyframes prolinaniFotek {
+    0%, 33.33% { opacity: 1; z-index: 4; }
+    37.33%, 96% { opacity: 0; z-index: 1; }
+    100% { opacity: 1; z-index: 3; }
 }
 
 .menu {
@@ -89,7 +157,7 @@ body {
 }
 
 .menu li {
-    padding: 6px 0;
+    padding: 8px 0;
     border-bottom: 1px solid grey;
 }
 
@@ -101,15 +169,29 @@ body {
     font-size: 12px;
     color: grey;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 768px) {
+    .cerne,
+    .bile {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px;
+    }
+    .cerne:hover,
+    .bile:hover {
+        padding: 30px;
+    }
     .vlevo,
     .vpravo {
-        float: none;
-        display: block;
+        order: -1;
+    }
+    .kavarna-galerie {
         width: 100%;
-        margin: 0 0 15px 0;
+        height: 230px;
+    }
+    .kavarna-galerie:hover {
+        transform: none;
     }
 }
