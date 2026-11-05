@@ -1,0 +1,31 @@
+body {
+    font-family: fantasy, 'Arial', 'Courier New', Courier, monospace;
+    background-color: rgb(217, 142, 49);
+    max-width: 800px;
+    color: green;
+    margin: 10px auto;
+}
+
+div {
+    padding: 25px;
+    background-color: bisque;
+    border: 1px gray solid;
+    border-radius: 15px;
+}
+
+p {
+    text-align: justify;
+    color: darkslategray;
+    font-size: 14px;
+}
+
+h1 {
+    color: darkred;
+    text-align: center;
+}
+
+img {
+    float: right;
+    margin: 15px;
+    border: green 2px solid;
+}
