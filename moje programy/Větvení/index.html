@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>První skript</title>
+</head>
+<body>
+ <h1>Jsi dospělý?</h1>
+ 
+  Věk: <input type="number" id="vek">
+  <button onclick="zjistit()">Zjistit</button>
+ 
+  <p id="vysledek"></p>
+ 
+  <script>
+    function zjistit() {
+      let vek = Number(document.getElementById("vek").value);
+ 
+      if (vek >= 18) {
+        document.getElementById("vysledek").innerText = "Jsi dospělý";
+      } else {
+        document.getElementById("vysledek").innerText = "Nejsi dospělý";
+      }
+    }
+  </script>
+</body>
+</html>
