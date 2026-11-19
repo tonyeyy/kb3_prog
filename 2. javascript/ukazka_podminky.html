@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ukázka: Podmínky</title>
+</head>
+<body>
+    <h1>Sudé, nebo liché?</h1>
+    <p id="vysledek"></p>
+
+    <script>
+        let cislo = Number(prompt("Zadej celé číslo:"));
+        let zprava;
+
+        // Operátor % vrací zbytek po dělení.
+        if (cislo % 2 === 0) {
+            zprava = "Číslo " + cislo + " je sudé.";
+        } else {
+            zprava = "Číslo " + cislo + " je liché.";
+        }
+
+        document.getElementById("vysledek").innerHTML = zprava;
+    </script>
+</body>
+</html>

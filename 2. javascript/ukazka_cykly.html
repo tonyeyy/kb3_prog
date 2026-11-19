@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ukázka: Cykly</title>
+</head>
+<body>
+    <h1>Násobilka</h1>
+    <div id="vysledek"></div>
+
+    <script>
+        let cislo = Number(prompt("Zadej číslo pro násobilku:"));
+        let vystup = "";
+
+        // Cyklus postupně vytváří 10 řádků násobilky.
+        for (let i = 1; i <= 10; i++) {
+            vystup = cislo + " × " + i + " = " + (cislo * i) + "\n";
+            document.getElementById("vysledek").innerHTML += "<p>" + vystup + "</p>";
+        }
+    </script>
+</body>
+</html>

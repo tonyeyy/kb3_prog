@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ukázka: Vstup a výstup</title>
+</head>
+<body>
+    <h1>Sčítání dvou čísel</h1>
+    <p id="vysledek"></p>
+
+    <script>
+        // <script> se nejčastěji dává na konec <body>
+        // prompt() vrací text, proto ho převedeme na číslo.
+        let a = Number(prompt("Zadej první číslo:"));
+        let b = Number(prompt("Zadej druhé číslo:"));
+
+        let soucet = a + b;
+
+        // textContent vypíše text do existujícího HTML prvku.
+        document.getElementById("vysledek").innerHTML =
+            "Součet: " + soucet;
+    </script>
+</body>
+</html>
