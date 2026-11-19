@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudé nebo liché</title>
+</head>
+<body>
+    <h1 id="vysledek"></h1>
+
+    <script>
+        let cislo = Number(prompt("Zadej celé číslo: "));
+        if (!Number.isInteger(cislo) || cislo == "") {
+          document.getElementById("vysledek").innerHTML
+                = "Vstup je neplatný";
+        } else if (cislo % 2 == 0) {
+            document.getElementById("vysledek").innerHTML
+                = "Číslo je sudé";
+        } else {
+            document.getElementById("vysledek").innerHTML
+                = "Číslo je liché";            
+        }
+    </script>
+    
+</body>
+</html>
